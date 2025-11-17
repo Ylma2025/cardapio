@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ylma Cake's & Cia - Cardápio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e Configurações Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f4ff 0%, #ffffff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #8b5fad 0%, #6d3b9e 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(109, 59, 158, 0.3);
+        }
+
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .logo p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #6d3b9e 0%, #8b5fad 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Contato */
+        .contato {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 3px solid #8b5fad;
+        }
+
+        .contato-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contato-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contato-item span {
+            font-size: 1.5rem;
+        }
+
+        /* Filtros */
+        .filtros {
+            background: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .filtros .container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filtro-btn {
+            background: #f0e6ff;
+            border: 2px solid #8b5fad;
+            color: #6d3b9e;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filtro-btn:hover,
+        .filtro-btn.active {
+            background: #8b5fad;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Cardápio */
+        .cardapio {
+            padding: 3rem 0;
+        }
+
+        .cardapio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .categoria-section {
+            margin-bottom: 3rem;
+        }
+
+        .categoria-titulo {
+            font-size: 1.8rem;
+            color: #6d3b9e;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #8b5fad;
+            display: inline-block;
+        }
+
+        .item-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #8b5fad;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(139, 95, 173, 0.2);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .item-nome {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            flex: 1;
+        }
+
+        .item-preco {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #6d3b9e;
+            background: #f0e6ff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .item-descricao {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .item-disponibilidade {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .disponivel {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .indisponivel {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .contato-info {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .cardapio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filtros .container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Ylma Cake's & Cia</h1>
+                <p>Sabores que encantam</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-info">
+                <h2>Cardápio Digital</h2>
+                <p>Deliciosas opções para todos os momentos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contato">
+        <div class="container">
+            <div class="contato-info">
+                <div class="contato-item">
+                    <span>📞</span>
+                    <p>(71) 98864-0247</p>
+                </div>
+                <div class="contato-item">
+                    <span>📍</span>
+                    <p>Praça do Baixo Ormoso, s/n<br>Porto de Sauipe - Entre Rios - BA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros de Categoria -->
+    <section class="filtros">
+        <div class="container">
+            <button class="filtro-btn active" data-categoria="all">Todos</button>
+            <button class="filtro-btn" data-categoria="Café da Manhã">Café da Manhã</button>
+            <button class="filtro-btn" data-categoria="Lanches">Lanches</button>
+            <button class="filtro-btn" data-categoria="Bebidas">Bebidas</button>
+            <button class="filtro-btn" data-categoria="Petiscos">Petiscos</button>
+            <button class="filtro-btn" data-categoria="Pastel">Pastel</button>
+            <button class="filtro-btn" data-categoria="Pizza">Pizza</button>
+        </div>
+    </section>
+
+    <!-- Cardápio -->
+    <section class="cardapio">
+        <div class="container">
+            <div id="cardapio-container" class="cardapio-grid">
+                <!-- Os itens serão carregados via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Ylma Cake's & Cia - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Dados convertidos do CSV
+        const cardapioData = {
+            "Café da Manhã": [
+                { "nome": "Aipim Cozido - Charque", "descricao": "", "preco": "27.00", "disponivel": true },
+                { "nome": "Aipim Cozido - Calabresa", "descricao": "", "preco": "27.00", "disponivel": true },
+                { "nome": "Aipim Cozido - Carne do Sol", "descricao": "", "preco": "27.00", "disponivel": true },
+                { "nome": "Aipim Cozido - Fumeiro", "descricao": "", "preco": "27.00", "disponivel": true },
+                { "nome": "Banana da Terra - Porção", "descricao": "", "preco": "15.00", "disponivel": true },
+                { "nome": "Batata Doce - Porção", "descricao": "", "preco": "12.00", "disponivel": true },
+                { "nome": "Cuscuz com Leite de Côco", "descricao": "", "preco": "18.00", "disponivel": true },
+                { "nome": "Cuscuz de Tapioca", "descricao": "", "preco": "12.00", "disponivel": true },
+                { "nome": "Cuscuz Temperado - Calabresa", "descricao": "", "preco": "30.00", "disponivel": true },
+                { "nome": "Cuscuz Temperado - Carne do Sol", "descricao": "", "preco": "27.00", "disponivel": true },
+                { "nome": "Cuscuz Temperado - Charque", "descricao": "", "preco": "27.00", "disponivel": true },
+                { "nome": "Cuscuz Temperado - Fumeiro", "descricao": "", "preco": "27.00", "disponivel": true },
+                { "nome": "Cuscuz Temperado - Ovos", "descricao": "", "preco": "27.00", "disponivel": true },
+                { "nome": "Hambúrguer Artesanal", "descricao": "", "preco": "28.00", "disponivel": true },
+                { "nome": "Misto Quente", "descricao": "", "preco": "10.00", "disponivel": true },
+                { "nome": "Omelete de Carne", "descricao": "", "preco": "22.00", "disponivel": true },
+                { "nome": "Omelete de Frango", "descricao": "", "preco": "20.00", "disponivel": true },
+                { "nome": "Sanduíche de Frango", "descricao": "", "preco": "25.00", "disponivel": true },
+                { "nome": "Sanduíche de Picanha", "descricao": "", "preco": "30.00", "disponivel": true },
+                { "nome": "Sanduíche de Toscana", "descricao": "", "preco": "20.00", "disponivel": true }
+            ],
+            "Lanches": [
+                { "nome": "Bolo (fatia)", "descricao": "", "preco": "10.00", "disponivel": true },
+                { "nome": "Bolo de Pote", "descricao": "", "preco": "8.00", "disponivel": true },
+                { "nome": "Cafe Expresso", "descricao": "", "preco": "5.00", "disponivel": true },
+                { "nome": "Coxinha", "descricao": "", "preco": "8.00", "disponivel": true },
+                { "nome": "Coxinha Especial", "descricao": "Com catupiry ou outros", "preco": "10.00", "disponivel": true },
+                { "nome": "Cupcake", "descricao": "", "preco": "5.00", "disponivel": true },
+                { "nome": "Empada", "descricao": "", "preco": "8.00", "disponivel": true },
+                { "nome": "Empada Doce", "descricao": "", "preco": "8.00", "disponivel": true },
+                { "nome": "Kibe Frito", "descricao": "", "preco": "12.00", "disponivel": true },
+                { "nome": "Mousse", "descricao": "", "preco": "6.00", "disponivel": true },
+                { "nome": "Pao de Queijo", "descricao": "", "preco": "7.00", "disponivel": true },
+                { "nome": "Pão Delícia", "descricao": "", "preco": "11.00", "disponivel": true },
+                { "nome": "Pastel de Forno", "descricao": "", "preco": "8.00", "disponivel": true },
+                { "nome": "Pudim", "descricao": "", "preco": "5.00", "disponivel": true },
+                { "nome": "Torta (fatia)", "descricao": "", "preco": "18.00", "disponivel": true },
+                { "nome": "Vitamina (diversas)", "descricao": "", "preco": "12.00", "disponivel": true }
+            ],
+            "Bebidas": [
+                { "nome": "Água com Gás", "descricao": "", "preco": "5.00", "disponivel": true },
+                { "nome": "Água sem Gás", "descricao": "", "preco": "4.00", "disponivel": true },
+                { "nome": "Água Tônica", "descricao": "", "preco": "6.50", "disponivel": true },
+                { "nome": "Aquarius Fresh", "descricao": "", "preco": "7.50", "disponivel": true },
+                { "nome": "Café com Leite (média)", "descricao": "Xícara média de café", "preco": "6.00", "disponivel": true },
+                { "nome": "Café com Leite (pequeno)", "descricao": "Xícara pequena", "preco": "3.00", "disponivel": true },
+                { "nome": "Café s/ Leite (pequeno)", "descricao": "Xícara pequena", "preco": "2.00", "disponivel": true },
+                { "nome": "Café sem Leite (média)", "descricao": "Xícara média", "preco": "4.00", "disponivel": true },
+                { "nome": "Capuccino", "descricao": "", "preco": "9.00", "disponivel": true },
+                { "nome": "Chá Artesanal (diversos)", "descricao": "400 ml", "preco": "7.50", "disponivel": true },
+                { "nome": "Chocolate Gelado", "descricao": "", "preco": "10.00", "disponivel": true },
+                { "nome": "Chocolate Quente", "descricao": "", "preco": "15.00", "disponivel": true },
+                { "nome": "Coquetel de Frutas (diversas)", "descricao": "Coquetel de Frutas sem alcool", "preco": "20.00", "disponivel": true },
+                { "nome": "H2O", "descricao": "", "preco": "7.50", "disponivel": true },
+                { "nome": "Refrigerante 1 litro", "descricao": "Coca Cola", "preco": "8.50", "disponivel": true },
+                { "nome": "Refrigerante Lata", "descricao": "", "preco": "6.00", "disponivel": true },
+                { "nome": "Refrigerante Mini Pet", "descricao": "", "preco": "3.00", "disponivel": true },
+                { "nome": "Roska de Kiwi", "descricao": "", "preco": "20.00", "disponivel": true },
+                { "nome": "Roska de Limão", "descricao": "", "preco": "18.00", "disponivel": true },
+                { "nome": "Roska de Morango", "descricao": "", "preco": "20.00", "disponivel": true },
+                { "nome": "Roska de Umbu", "descricao": "", "preco": "18.00", "disponivel": true },
+                { "nome": "Suco de Abacaxi", "descricao": "", "preco": "12.00", "disponivel": true },
+                { "nome": "Suco de Frutas (copo)", "descricao": "", "preco": "15.00", "disponivel": true },
+                { "nome": "Suco de Frutas (jarra)", "descricao": "", "preco": "25.00", "disponivel": true },
+                { "nome": "Suco de Laranja (copo)", "descricao": "", "preco": "10.00", "disponivel": true },
+                { "nome": "Suco de Laranja (jarra)", "descricao": "", "preco": "19.00", "disponivel": true },
+                { "nome": "Suco de Limão", "descricao": "", "preco": "10.00", "disponivel": true },
+                { "nome": "Suco de Limão (jarra)", "descricao": "", "preco": "18.00", "disponivel": true },
+                { "nome": "Suco de Maracujá (copo)", "descricao": "", "preco": "14.00", "disponivel": true },
+                { "nome": "Suco de Maracujá (jarra)", "descricao": "", "preco": "25.00", "disponivel": true },
+                { "nome": "Suco de Morango (copo)", "descricao": "", "preco": "17.00", "disponivel": true },
+                { "nome": "Suco de Morango (jarra)", "descricao": "", "preco": "30.00", "disponivel": true },
+                { "nome": "Suco Del Vale", "descricao": "", "preco": "6.00", "disponivel": true }
+            ],
+            "Petiscos": [
+                { "nome": "Batata Frita - Porção", "descricao": "", "preco": "20.00", "disponivel": true },
+                { "nome": "Caldo de Sururu", "descricao": "", "preco": "15.00", "disponivel": true },
+                { "nome": "Camarão Encapado", "descricao": "", "preco": "35.00", "disponivel": true },
+                { "nome": "Codorna", "descricao": "", "preco": "variable", "disponivel": true },
+                { "nome": "Escondidinho de Camarão", "descricao": "", "preco": "25.00", "disponivel": true },
+                { "nome": "Escondidinho de Carne do Sol", "descricao": "", "preco": "22.00", "disponivel": true }
+            ],
+            "Pastel": [
+                { "nome": "Pastel de Camarão", "descricao": "", "preco": "19.00", "disponivel": true },
+                { "nome": "Pastel de Carne", "descricao": "", "preco": "14.00", "disponivel": true },
+                { "nome": "Pastel de Carne com Queijo", "descricao": "", "preco": "16.00", "disponivel": true },
+                { "nome": "Pastel de Carne Seca", "descricao": "", "preco": "19.00", "disponivel": true },
+                { "nome": "Pastel de Frango", "descricao": "", "preco": "12.00", "disponivel": true },
+                { "nome": "Pastel de Toscana com Requeijão", "descricao": "", "preco": "15.00", "disponivel": true },
+                { "nome": "Pastel Misto", "descricao": "", "preco": "14.00", "disponivel": true },
+                { "nome": "Pastel Três Queijos", "descricao": "", "preco": "17.00", "disponivel": true }
+            ],
+            "Pizza": [
+                { "nome": "Pizza de Atum (brotinho)", "descricao": "molho de tomate e mussarela e cebola", "preco": "19.00", "disponivel": true },
+                { "nome": "Pizza de Atum (grande)", "descricao": "molho de tomate e mussarela", "preco": "55.00", "disponivel": true },
+                { "nome": "Pizza de Calabresa (brotinho)", "descricao": "molho de tomate e mussarela", "preco": "15.00", "disponivel": true },
+                { "nome": "Pizza de Calabresa (Grande)", "descricao": "Molho de Tomate e Mussarela", "preco": "42.00", "disponivel": true },
+                { "nome": "Pizza de Camarão (grande)", "descricao": "molho de tomate e mussarela", "preco": "60.00", "disponivel": true },
+                { "nome": "Pizza de Frango (grande)", "descricao": "molho de tomate e mussarela", "preco": "40.00", "disponivel": true },
+                { "nome": "Pizza de Frango com Bacon e catupiri (grande)", "descricao": "Molho de tomate e mussarela", "preco": "46.00", "disponivel": true },
+                { "nome": "Pizza de Frango com Catupiry (brotinho)", "descricao": "molho de tomate e mussarela", "preco": "17.00", "disponivel": true },
+                { "nome": "Pizza de Frango com Catupiry (grande)", "descricao": "Molho de tomate e mussarela", "preco": "45.00", "disponivel": true },
+                { "nome": "Pizza Portuguesa (brotinho)", "descricao": "presunto, ovo, cebola, orégano e azeitona", "preco": "18.00", "disponivel": true },
+                { "nome": "Pizza Portuguesa (grande)", "descricao": "Presunto, ovo, tomate, cebola, orégano e azeitona", "preco": "40.00", "disponivel": true },
+                { "nome": "Pizza Sertaneja (grande)", "descricao": "carne seca, queijo coalho e banana da terra", "preco": "55.00", "disponivel": true },
+                { "nome": "Pizza Três Queijos", "descricao": "provolone, gorgonzola e queijo coalho", "preco": "60.00", "disponivel": true },
+                { "nome": "Pizza Três Queijos (brotinho)", "descricao": "provolone, gorgonzola e queijo coalho", "preco": "20.00", "disponivel": true }
+            ]
+        };
+
+        // Função para formatar preço
+        function formatarPreco(preco) {
+            if (preco === 'variable') return 'Sob Consulta';
+            const numero = parseFloat(preco);
+            return isNaN(numero) ? preco : `R$ ${numero.toFixed(2).replace('.', ',')}`;
+        }
+
+        // Função para renderizar o cardápio
+        function renderizarCardapio(categoriaFiltro = 'all') {
+            const container = document.getElementById('cardapio-container');
+            container.innerHTML = '';
+
+            Object.entries(cardapioData).forEach(([categoria, itens]) => {
+                if (categoriaFiltro !== 'all' && categoriaFiltro !== categoria) return;
+
+                const categoriaSection = document.createElement('div');
+                categoriaSection.className = 'categoria-section';
+                
+                const titulo = document.createElement('h2');
+                titulo.className = 'categoria-titulo';
+                titulo.textContent = categoria;
+                categoriaSection.appendChild(titulo);
+
+                const grid = document.createElement('div');
+                grid.className = 'cardapio-grid';
+
+                itens.forEach(item => {
+                    const itemCard = document.createElement('div');
+                    itemCard.className = 'item-card';
+                    
+                    itemCard.innerHTML = `
+                        <div class="item-header">
+                            <h3 class="item-nome">${item.nome}</h3>
+                            <span class="item-preco">${formatarPreco(item.preco)}</span>
+                        </div>
+                        ${item.descricao ? `<p class="item-descricao">${item.descricao}</p>` : ''}
+                        <span class="item-disponibilidade ${item.disponivel ? 'disponivel' : 'indisponivel'}">
+                            ${item.disponivel ? '✅ Disponível' : '❌ Indisponível'}
+                        </span>
+                    `;
+
+                    grid.appendChild(itemCard);
+                });
+
+                categoriaSection.appendChild(grid);
+                container.appendChild(categoriaSection);
+            });
+        }
+
+        // Filtros
+        document.addEventListener('DOMContentLoaded', function() {
+            renderizarCardapio();
+
+            // Event listeners para filtros
+            document.querySelectorAll('.filtro-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const categoria = this.getAttribute('data-categoria');
+                    renderizarCardapio(categoria);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
