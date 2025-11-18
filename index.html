@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,7 +7,6 @@
     <title>Ylma Cake's & Cia - Cardápio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset e Configurações Gerais */
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +26,6 @@
             padding: 0 20px;
         }
 
-        /* Header */
         .header {
             background: linear-gradient(135deg, #8b5fad 0%, #6d3b9e 100%);
             color: white;
@@ -39,16 +38,13 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .logo p {
             font-size: 1.1rem;
             opacity: 0.9;
-            font-weight: 300;
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #6d3b9e 0%, #8b5fad 100%);
             color: white;
@@ -59,15 +55,8 @@
         .hero h2 {
             font-size: 2.2rem;
             margin-bottom: 1rem;
-            font-weight: 600;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* Contato */
         .contato {
             background: white;
             padding: 2rem 0;
@@ -88,11 +77,6 @@
             font-size: 1.1rem;
         }
 
-        .contato-item span {
-            font-size: 1.5rem;
-        }
-
-        /* Filtros */
         .filtros {
             background: white;
             padding: 1.5rem 0;
@@ -127,7 +111,6 @@
             transform: translateY(-2px);
         }
 
-        /* Cardápio */
         .cardapio {
             padding: 3rem 0;
         }
@@ -148,7 +131,6 @@
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
             border-bottom: 3px solid #8b5fad;
-            display: inline-block;
         }
 
         .item-card {
@@ -192,7 +174,6 @@
             color: #666;
             margin-bottom: 1rem;
             line-height: 1.5;
-            font-size: 0.95rem;
         }
 
         .item-disponibilidade {
@@ -213,7 +194,6 @@
             color: #c62828;
         }
 
-        /* Footer */
         .footer {
             background: #333;
             color: white;
@@ -222,36 +202,15 @@
             margin-top: 3rem;
         }
 
-        /* Responsivo */
         @media (max-width: 768px) {
-            .logo h1 {
-                font-size: 2rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.8rem;
-            }
-            
-            .contato-info {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .cardapio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .filtros .container {
-                justify-content: flex-start;
-                overflow-x: auto;
-                padding-bottom: 1rem;
-            }
+            .logo h1 { font-size: 2rem; }
+            .hero h2 { font-size: 1.8rem; }
+            .contato-info { flex-direction: column; gap: 1rem; }
+            .cardapio-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="logo">
@@ -261,17 +220,13 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-info">
-                <h2>Cardápio Digital</h2>
-                <p>Deliciosas opções para todos os momentos</p>
-            </div>
+            <h2>Cardápio Digital</h2>
+            <p>Deliciosas opções para todos os momentos</p>
         </div>
     </section>
 
-    <!-- Contato -->
     <section class="contato">
         <div class="container">
             <div class="contato-info">
@@ -287,7 +242,6 @@
         </div>
     </section>
 
-    <!-- Filtros de Categoria -->
     <section class="filtros">
         <div class="container">
             <button class="filtro-btn active" data-categoria="all">Todos</button>
@@ -300,16 +254,12 @@
         </div>
     </section>
 
-    <!-- Cardápio -->
     <section class="cardapio">
         <div class="container">
-            <div id="cardapio-container" class="cardapio-grid">
-                <!-- Os itens serão carregados via JavaScript -->
-            </div>
+            <div id="cardapio-container" class="cardapio-grid"></div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2024 Ylma Cake's & Cia - Todos os direitos reservados</p>
@@ -317,16 +267,16 @@
     </footer>
 
     <script>
-        // DADOS ATUALIZADOS COM DESCRIÇÕES CORRIGIDAS (sem tags HTML)
+        // DADOS CORRIGIDOS baseados no CSV
         const cardapioData = {
             "Café da Manhã": [
-                { "nome": "Aipim Cozido - Charque", "descricao": "", "preco": "30.00", "disponivel": true },
-                { "nome": "Aipim Cozido - Calabresa", "descricao": "Aipim, calabresa, ovo, tomate, alface e cebola", "preco": "30.00", "disponivel": true },
-                { "nome": "Aipim Cozido - Carne do Sol", "descricao": "", "preco": "30.00", "disponivel": true },
-                { "nome": "Aipim Cozido - Fumeiro", "descricao": "Carne de fumeiro, ovo, tomate, alface, cebola", "preco": "30.00", "disponivel": true },
-                { "nome": "Aipim Cozido - Ovos", "descricao": "Ovos, tomate, alface, cebola", "preco": "25.00", "disponivel": true },
-                { "nome": "Banana da Terra - Porção", "descricao": "Porção de banana da terra", "preco": "18.00", "disponivel": true },
-                { "nome": "Batata Doce - Porção", "descricao": "Porção de batata doce cozida", "preco": "13.00", "disponivel": true },
+                { "nome": "Aipim Cozido - Charque", "descricao": "Carne, ovo, tomate, alface e cebola", "preco": "30.00", "disponivel": true },
+                { "nome": "Aipim Cozido - Calabresa", "descricao": "Aipim, calabresa, ovo, tomate, alface e cebola", "preco": "30.00", "disponivel": false },
+                { "nome": "Aipim Cozido - Carne do Sol", "descricao": "Carne, Ovo, tomate, alface e cebola", "preco": "30.00", "disponivel": false },
+                { "nome": "Aipim Cozido - Fumeiro", "descricao": "Carne de fumeiro, ovo, tomate, alface, cebola", "preco": "30.00", "disponivel": false },
+                { "nome": "Aipim Cozido - Ovos", "descricao": "Ovos, tomate, alface, cebola", "preco": "25.00", "disponivel": false },
+                { "nome": "Banana da Terra - Porção", "descricao": "Porção de banana da terra", "preco": "18.00", "disponivel": false },
+                { "nome": "Batata Doce - Porção", "descricao": "Porção de batata doce cozida", "preco": "13.00", "disponivel": false },
                 { "nome": "Cuscuz com Leite de Côco", "descricao": "", "preco": "18.00", "disponivel": true },
                 { "nome": "Cuscuz de Tapioca", "descricao": "Tapioca, leite de côco", "preco": "13.00", "disponivel": true },
                 { "nome": "Cuscuz Temperado - Calabresa", "descricao": "Calabresa, ovo, alface tomate, cebola", "preco": "30.00", "disponivel": true },
@@ -345,8 +295,8 @@
                 { "nome": "Sanduíche de Toscana", "descricao": "Pão baguete, toscana, queijo, tomate, alface e cebola", "preco": "22.00", "disponivel": true }
             ],
             "Lanches": [
-                { "nome": "Bolo (fatia)", "descricao": "", "preco": "10.00", "disponivel": true },
-                { "nome": "Bolo de Pote", "descricao": "", "preco": "8.00", "disponivel": true },
+                { "nome": "Bolo (fatia)", "descricao": "", "preco": "10.00", "disponivel": false },
+                { "nome": "Bolo de Pote", "descricao": "", "preco": "8.00", "disponivel": false },
                 { "nome": "Cafe Expresso", "descricao": "", "preco": "5.00", "disponivel": true },
                 { "nome": "Coxinha", "descricao": "", "preco": "8.00", "disponivel": true },
                 { "nome": "Coxinha Especial", "descricao": "Com catupiry ou outros", "preco": "10.00", "disponivel": true },
@@ -363,30 +313,42 @@
                 { "nome": "Vitamina (diversas)", "descricao": "", "preco": "12.00", "disponivel": true }
             ],
             "Bebidas": [
-                { "nome": "Água com Gás", "descricao": "", "preco": "5.00", "disponivel": true },
-                { "nome": "Água sem Gás", "descricao": "", "preco": "4.00", "disponivel": true },
+                { "nome": "Água com Gás 500ml", "descricao": "", "preco": "5.00", "disponivel": true },
+                { "nome": "Água sem Gás 500ml", "descricao": "", "preco": "4.00", "disponivel": true },
                 { "nome": "Água Tônica", "descricao": "", "preco": "6.50", "disponivel": true },
                 { "nome": "Aquarius Fresh", "descricao": "", "preco": "7.50", "disponivel": true },
                 { "nome": "Café com Leite (média)", "descricao": "Xícara média de café", "preco": "6.00", "disponivel": true },
                 { "nome": "Café com Leite (pequeno)", "descricao": "Xícara pequena", "preco": "3.00", "disponivel": true },
                 { "nome": "Café s/ Leite (pequeno)", "descricao": "Xícara pequena", "preco": "2.00", "disponivel": true },
                 { "nome": "Café sem Leite (média)", "descricao": "Xícara média", "preco": "4.00", "disponivel": true },
+                { "nome": "Caipirinha de Limão", "descricao": "", "preco": "15.00", "disponivel": true },
+                { "nome": "Caipirinha de Maracujá", "descricao": "", "preco": "18.00", "disponivel": true },
+                { "nome": "Caipirinha de Tangerina", "descricao": "", "preco": "15.00", "disponivel": true },
+                { "nome": "Caipirinha de Abacaxi", "descricao": "", "preco": "15.00", "disponivel": true },
+                { "nome": "Caipirinha de Acerola", "descricao": "", "preco": "15.00", "disponivel": true },
                 { "nome": "Capuccino", "descricao": "", "preco": "9.00", "disponivel": true },
                 { "nome": "Chá Artesanal (diversos)", "descricao": "400 ml", "preco": "9.00", "disponivel": true },
                 { "nome": "Chocolate Gelado", "descricao": "", "preco": "10.00", "disponivel": true },
                 { "nome": "Chocolate Quente", "descricao": "", "preco": "15.00", "disponivel": true },
                 { "nome": "Coquetel de Frutas (diversas)", "descricao": "Coquetel de Frutas sem alcool", "preco": "20.00", "disponivel": true },
                 { "nome": "H2O", "descricao": "", "preco": "7.50", "disponivel": true },
-                { "nome": "Refrigerante 1 litro", "descricao": "Coca Cola", "preco": "8.50", "disponivel": true },
-                { "nome": "Refrigerante Lata", "descricao": "Coca, Fanta, Guaraná, Limão 350ml", "preco": "6.00", "disponivel": true },
-                { "nome": "Refrigerante Mini Pet", "descricao": "", "preco": "3.00", "disponivel": true },
-                { "nome": "Roska de Kiwi", "descricao": "", "preco": "20.00", "disponivel": true },
+                { "nome": "Ice Tea Mate c/gás", "descricao": "", "preco": "6.00", "disponivel": true },
+                { "nome": "Refrigerante 1 litro (Coca cola)", "descricao": "Coca Cola", "preco": "10.00", "disponivel": true },
+                { "nome": "Refrigerante 1 litro (Fanta)", "descricao": "", "preco": "10.00", "disponivel": true },
+                { "nome": "Refrigerante Lata 350ml", "descricao": "Coca, Fanta, Guaraná, Limão 350ml", "preco": "6.00", "disponivel": true },
+                { "nome": "Refrigerante Lata Sprite 350ml", "descricao": "", "preco": "6.00", "disponivel": true },
+                { "nome": "Refrigerante pet 200ml Coca Cola", "descricao": "", "preco": "3.00", "disponivel": true },
+                { "nome": "Refrigerante pet 200ml Fanta", "descricao": "", "preco": "3.00", "disponivel": true },
+                { "nome": "Refrigerante pet 600ml Coca Cola", "descricao": "", "preco": "7.50", "disponivel": true },
                 { "nome": "Roska de Limão", "descricao": "", "preco": "18.00", "disponivel": true },
-                { "nome": "Roska de Morango", "descricao": "", "preco": "20.00", "disponivel": true },
+                { "nome": "Roska de Maracujá", "descricao": "", "preco": "20.00", "disponivel": true },
+                { "nome": "Roska de Morango", "descricao": "", "preco": "28.00", "disponivel": true },
+                { "nome": "Roska de Kiwi", "descricao": "", "preco": "28.00", "disponivel": true },
+                { "nome": "Roska de Abacaxi", "descricao": "", "preco": "18.00", "disponivel": true },
+                { "nome": "Roska de Acerola", "descricao": "", "preco": "18.00", "disponivel": true },
+                { "nome": "Roska de Tangerina", "descricao": "", "preco": "18.00", "disponivel": true },
                 { "nome": "Roska de Umbu", "descricao": "", "preco": "18.00", "disponivel": true },
                 { "nome": "Suco de Abacaxi", "descricao": "", "preco": "12.00", "disponivel": true },
-                { "nome": "Suco de Frutas (copo)", "descricao": "", "preco": "15.00", "disponivel": true },
-                { "nome": "Suco de Frutas (jarra)", "descricao": "", "preco": "25.00", "disponivel": true },
                 { "nome": "Suco de Laranja (copo)", "descricao": "", "preco": "10.00", "disponivel": true },
                 { "nome": "Suco de Laranja (jarra)", "descricao": "", "preco": "19.00", "disponivel": true },
                 { "nome": "Suco de Limão", "descricao": "", "preco": "10.00", "disponivel": true },
@@ -395,13 +357,15 @@
                 { "nome": "Suco de Maracujá (jarra)", "descricao": "", "preco": "25.00", "disponivel": true },
                 { "nome": "Suco de Morango (copo)", "descricao": "", "preco": "17.00", "disponivel": true },
                 { "nome": "Suco de Morango (jarra)", "descricao": "", "preco": "30.00", "disponivel": true },
+                { "nome": "Suco de Frutas (copo)", "descricao": "", "preco": "15.00", "disponivel": true },
+                { "nome": "Suco de Frutas (jarra)", "descricao": "", "preco": "25.00", "disponivel": true },
                 { "nome": "Suco Del Vale", "descricao": "", "preco": "6.00", "disponivel": true }
             ],
             "Petiscos": [
-                { "nome": "Batata Frita - Porção", "descricao": "", "preco": "20.00", "disponivel": true },
+                { "nome": "Batata Frita - Porção", "descricao": "", "preco": "20.00", "disponivel": false },
                 { "nome": "Caldo de Sururu", "descricao": "", "preco": "15.00", "disponivel": true },
                 { "nome": "Camarão Encapado", "descricao": "", "preco": "35.00", "disponivel": true },
-                { "nome": "Codorna", "descricao": "", "preco": "variable", "disponivel": true },
+                { "nome": "Codorna", "descricao": "", "preco": "18.00", "disponivel": true },
                 { "nome": "Escondidinho de Camarão", "descricao": "", "preco": "25.00", "disponivel": true },
                 { "nome": "Escondidinho de Carne do Sol", "descricao": "", "preco": "22.00", "disponivel": true }
             ],
@@ -433,14 +397,12 @@
             ]
         };
 
-        // Função para formatar preço
         function formatarPreco(preco) {
             if (preco === 'variable') return 'Sob Consulta';
             const numero = parseFloat(preco);
             return isNaN(numero) ? preco : `R$ ${numero.toFixed(2).replace('.', ',')}`;
         }
 
-        // Função para renderizar o cardápio
         function renderizarCardapio(categoriaFiltro = 'all') {
             const container = document.getElementById('cardapio-container');
             container.innerHTML = '';
@@ -482,22 +444,17 @@
             });
         }
 
-        // Filtros
         document.addEventListener('DOMContentLoaded', function() {
             renderizarCardapio();
 
-            // Event listeners para filtros
             document.querySelectorAll('.filtro-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
-                    
-                    const categoria = this.getAttribute('data-categoria');
-                    renderizarCardapio(categoria);
+                    renderizarCardapio(this.getAttribute('data-categoria'));
                 });
             });
         });
     </script>
 </body>
-
 </html>
